@@ -14,3 +14,6 @@ crash.log
 
 # Ignore Terraform variable files
 *.
+
+# Ignore Terraform lock file
+.terraform.lock.hcl
