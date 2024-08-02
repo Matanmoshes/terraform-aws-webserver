@@ -128,3 +128,20 @@ Webserver-Public-IP = "54.83.98.202"
 
 Visit `http://54.83.98.202` in your web browser to see your test website.
 
+
+# Reference
+
+- https://developer.hashicorp.com/terraform/language/providers/configuration
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ssm_parameter
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/internet_gateway
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route_table
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_route_table
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/subnet
+- https://registry.terraform.io/providers/hashicorp/aws/3.24.1/docs/resources/security_group
+- https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+- https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec
+- https://developer.hashicorp.com/terraform/language/resources/provisioners/connection
+- https://developer.hashicorp.com/terraform/language/values/outputs
