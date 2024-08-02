@@ -1,0 +1,16 @@
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash logs
+crash.log
+
+# Ignore .terraform directory
+.terraform/
+
+# Ignore SSH keys
+*.pem
+*.key
+
+# Ignore Terraform variable files
+*.
