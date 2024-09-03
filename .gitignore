@@ -2,11 +2,19 @@
 *.tfstate
 *.tfstate.*
 
+# Terraform variable files, which may contain secrets
+*.tfvars
+*.tfvars.json
+
 # Ignore crash logs
 crash.log
 
-# Ignore .terraform directory
+# Exclude .terraform directory
 .terraform/
+.terraform.lock.hcl
+
+# Ignore Terraform plan outputs
+terraform.tfplan
 
 # Ignore SSH keys
 *.pem
