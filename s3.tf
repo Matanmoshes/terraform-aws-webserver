@@ -1,3 +1,4 @@
+/*
 resource "aws_s3_bucket" "terraform_state" {
     bucket = "my-terraform-state-bucket-matan-dsfs-rwerwer"
     tags = {
@@ -41,3 +42,4 @@ resource "aws_s3_bucket_policy" "terraform_state_policy" {
         ]
     })
 }
+*/

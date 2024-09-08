@@ -30,22 +30,31 @@ resource "aws_security_group" "sg" {
 }
 
 resource "aws_instance" "webserver" {
+    count                       = 3 
     ami                         = var.ami_id
     instance_type               = "t3.micro"
     key_name                    = aws_key_pair.webserver-key.key_name
     associate_public_ip_address = true
     vpc_security_group_ids      = [aws_security_group.sg.id]
-    subnet_id                   = element(aws_subnet.webserver_subnet[*].id, 0)
+    subnet_id                   = element(aws_subnet.webserver_subnet[*].id, count.index)
 
     user_data = <<-EOF
                     #!/bin/bash
-                    sudo yum -y install httpd
-                    sudo systemctl start httpd
-                    sudo systemctl enable httpd
-                    echo '<h1><center>My Test Website With Help From Terraform User Data</center></h1>' > /var/www/html/index.html
+                    sudo yum -y install nginx
+                    sudo systemctl start nginx
+                    sudo systemctl enable nginx
+
+                    # Get the hostname and local IP address
+                    HOSTNAME=$(hostname)
+                    LOCAL_IP=$(sudo curl http://169.254.169.254/latest/meta-data/local-ipv4)
+
+                    # Create an index.html file with the hostname and local IP
+                    echo "<h1><center>Test Website with Nginx</center></h1>" > /usr/share/nginx/html/index.html
+                    echo "<p><center>Hostname: $HOSTNAME</center></p>" >> /usr/share/nginx/html/index.html
+                    echo "<p><center>Local IP: $LOCAL_IP</center></p>" >> /usr/share/nginx/html/index.html
                 EOF
 
     tags = {
-        Name = "webserver"
+        Name = "webserver-${count.index}"
     }
 }

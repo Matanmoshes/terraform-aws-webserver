@@ -40,7 +40,8 @@ resource "aws_lb_listener" "listener" {
 }
 
 resource "aws_lb_target_group_attachment" "attachment" {
+    count            = 3 
     target_group_arn = aws_lb_target_group.tg.arn
-    target_id        = aws_instance.webserver.id
+    target_id        = aws_instance.webserver[count.index].id
     port             = 80
 }

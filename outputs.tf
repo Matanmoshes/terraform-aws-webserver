@@ -1,5 +1,5 @@
 output "Webserver-Public-IP" {
-    value = aws_instance.webserver.public_ip
+    value = [for instance in aws_instance.webserver : instance.public_ip]
 }
 
 output "ALB-DNS-Name" {
